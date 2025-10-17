@@ -38,6 +38,11 @@ fun factorial(n: Int): Int /*5 задание*/
     }
 }
 
+fun welcomeMessage(name: String = "Гость"): String /*6 задание*/
+{
+    return "Добро пожаловать, $name!"
+}
+
 fun main() {
     println(greet()) /*1 задание*/
 
@@ -49,4 +54,7 @@ fun main() {
     printEvenNumbers(10) /*4 задание*/
 
     print(factorial(5)) /*5 задание*/
+
+    print(welcomeMessage()) /*6 задание*/
+    print(welcomeMessage("Nekit"))
 }
