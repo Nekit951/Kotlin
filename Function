@@ -1,0 +1,52 @@
+fun greet(): String /*1 задание*/
+{
+    return "Привет, студент!"
+}
+
+fun multiply(a: Int, b: Int): Int /*2 задание*/
+{
+    return a * b
+}
+
+fun sayHello()  /*3 задание*/
+{
+    println("Здравствуйте!")
+}
+
+fun executeGreeting(greetingFunc: () -> Unit) 
+{
+    greetingFunc()
+}
+
+fun printEvenNumbers(n: Int) /*4 задание*/
+{
+    for (c in 1..n) 
+    {
+        if (c % 2 == 0) 
+        {
+            println(c)
+        }
+    }
+}
+
+fun factorial(n: Int): Int /*5 задание*/
+{
+    if (n <= 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+
+fun main() {
+    println(greet()) /*1 задание*/
+
+    val res = multiply(2,3) /*2 задание*/
+    println("Результат: $res")
+
+    executeGreeting(::sayHello) /*3 задание*/
+
+    printEvenNumbers(10) /*4 задание*/
+
+    print(factorial(5)) /*5 задание*/
+}
