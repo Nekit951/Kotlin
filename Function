@@ -31,30 +31,86 @@ fun printEvenNumbers(n: Int) /*4 задание*/
 
 fun factorial(n: Int): Int /*5 задание*/
 {
-    if (n <= 1) {
+    if (n <= 1) 
+    {
         return 1
-    } else {
+    } 
+    else 
+    {
         return n * factorial(n - 1)
     }
-}
+} 
 
 fun welcomeMessage(name: String = "Гость"): String /*6 задание*/
 {
+    println("\n")
     return "Добро пожаловать, $name!"
+}
+
+fun countWords(text: String): Int /*7 задание*/
+{
+    val words = text.split(" ")
+    val nonBlankWords = words.filter { it.isNotBlank() }
+    return nonBlankWords.count()
+}
+
+fun sortedBy(): List<Int> /*8 задание*/
+{
+    val num = listOf(3, -1, 0, 5)
+    val sortedNum = num.sorted()
+    return sortedNum
+}
+
+fun isPrime(d: Int): Boolean 
+{
+    if (d <= 1) 
+    {
+        return false // Числа меньше или равные 1 не являются простыми
+    }
+    for (i in 2..(d / 2)) 
+    { // Проверяем делители от 2 до n/2
+        if (d % i == 0) 
+        {
+        // Если число делится нацело, оно не простое
+            return false
+        }
+    }
+    return true // Если делителей не найдено, число простое
+}
+
+fun sumAll(vararg numbers: Int): Int /*10 задание*/
+{
+    var v = 0
+    for(x in numbers)
+    {
+        v += x
+    }
+    return v
 }
 
 fun main() {
     println(greet()) /*1 задание*/
 
     val res = multiply(2,3) /*2 задание*/
-    println("Результат: $res")
+    println(res)
 
     executeGreeting(::sayHello) /*3 задание*/
 
     printEvenNumbers(10) /*4 задание*/
 
-    print(factorial(5)) /*5 задание*/
-
-    print(welcomeMessage()) /*6 задание*/
-    print(welcomeMessage("Nekit"))
+    println(factorial(5)) /*5 задание*/
+    
+    println(welcomeMessage()) /*6 задание*/
+    println(welcomeMessage("Nekit"))
+    
+    println(countWords("Hello fff")) /*7 задание*/
+    
+    val resnum = sortedBy() /*8 задание*/
+    println(resnum)
+    
+    val resd = isPrime(17) /*9 задание*/
+    println(resd)
+    
+    val sum = sumAll(1,2,3,4,5) /*10 задание*/
+    println(sum)
 }
