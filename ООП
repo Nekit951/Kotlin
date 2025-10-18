@@ -1,0 +1,67 @@
+class Book(val title: String, val author: String, var year: Int)
+{
+    fun getBookInfo()
+    {
+        println("Название: $title, Автор: $author, Год: $year")
+    }
+}
+
+class Student(val name: String, val grades: List<Int>)
+{
+    fun getAverageGrade(): Double
+    {
+        if(grades.isEmpty())
+        {
+            return 0.0 // Чтобы не было деления на 0
+        }
+        return grades.average()
+    }
+}
+
+fun String.isPalindrome(): Boolean
+{
+    // Удаляем небуквенные символы и приводим к нижнему регистру
+    val cleanedString = this.replace(Regex("[^a-zA-Zа-яА-Я0-9]"), "").lowercase()
+    // Сравниваем очищенную строку с её перевёрнутой версией
+    return cleanedString == cleanedString.reversed()
+}
+
+open class Animal(val name: String)
+{
+    open fun makeSound()
+    {
+        println("Животное издаёт звук")
+    }
+}
+class Dog(name: String): Animal(name)
+{
+    override fun makeSound()
+    {
+        println("$name Гав")
+    }
+}
+class Cat(name: String): Animal(name)
+{
+    override fun makeSound()
+    {
+        println("$name Мяу")
+    }
+}
+
+fun main() 
+{
+    val book = Book("Онегин", "А.С. Пушкин", 1833)
+    book.getBookInfo()
+    
+    val st = Student("Nekit", listOf(5,4,5,4,5,5))
+    val avr = st.getAverageGrade()
+    println("${st.name}: средний балл: $avr")
+    
+    val text1 = "А роза упала на лапу Азора"
+    println("$text1 - палиндром: ${text1.isPalindrome()}")
+    
+    val dog = Dog("Шарик")
+    dog.makeSound()
+    val cat = Cat("Мурка")
+    cat.makeSound()
+}
