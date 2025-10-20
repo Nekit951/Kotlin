@@ -1,0 +1,128 @@
+class Student(val name: String) {
+    val grades = mutableListOf<Int>()
+
+    fun addGrade(grade: Int) {
+        grades.add(grade)
+    }
+
+    fun getAverageGrade(): Double {
+        return if (grades.isNotEmpty()) {
+            grades.sum().toDouble() / grades.size
+        } else {
+            0.0
+        }
+    }
+
+    fun printInfo() {
+        val average = getAverageGrade()
+        println("Студент: $name")
+        println("Оценки: $grades")
+        println("Средний балл: %.2f".format(average))
+        if (average >= 3) {
+            println("Студент сдает экзамен.")
+        } else {
+            println("Студент не сдаёт экзамен.")
+        }
+        println()
+    }
+}
+
+fun main() {
+    val students = mutableListOf<Student>()
+    
+    print("Введите количество студентов: ")
+    val studentCount = readLine()?.toIntOrNull() ?: return
+    
+    for (i in 1..studentCount) {
+        print("Введите имя студента #$i: ")
+        val name = readLine() ?: ""
+        val student = Student(name)
+        
+        println("Введите оценки для $name (Через пробел):")
+        val gradesInput = readLine()
+        val grades = gradesInput?.split(" ")?.mapNotNull {
+            it.toIntOrNull()
+        } ?: listOf()
+        
+        for (grade in grades) {
+            student.addGrade(grade)
+        }
+        students.add(student)
+        println()
+    }
+    for (student in students) {
+        student.printInfo()
+    }
+}
+
+class Student(val name: String) 
+{
+    val grades = mutableListOf<Int>()
+// Метод для добавления оценки 
+    fun addGrade(grade: Int) 
+    {
+        grades.add(grade)
+    }
+
+// Метод для вычисления среднего балла 
+    fun getAverageGrade(): Double 
+    {
+        return if (grades.isNotEmpty()) 
+        {
+            grades.sum().toDouble() / grades.size
+        } 
+        else 
+        {
+            0.0
+        }
+    }
+    
+    fun printInfo()
+    {
+        val average = getAverageGrade()
+        println("Студент: $name")
+        println("Оценки: $grades")
+        println("Средний балл: %.2f".format(average))
+        if(average >= 3)
+        {
+            println("Студент сдаёт экзамен.")
+        }
+        else 
+        {
+            println("Студент не сдаёт экзамен.")
+        }
+        println()
+    }
+
+}
+
+fun main()
+{
+    val students = mutableListOf<Student>()
+    
+    print("Введите количество студентов: ")
+    val studentCount = readLine()?.toIntOrNull() ?: return 
+    
+    for (i in 1..studentCount)
+    {
+        print("Введите имя студента #$i: ")
+        val name = readLine() ?: ""
+        val student = Student(name)
+    }
+    
+    println("Введите оценки для $name (Через пробел): ")
+    val gradesInput = readLine()
+    val grades = gradesInput?.split(" ")?.mapNotNull { it.toIntOrNull() } ?: listOf()
+    
+    for(grade in grades)
+    {
+        student.addGrade(grade)
+    }
+    students.add(student)
+    println()
+    
+    for(student in students)
+    {
+        student.printInfo()
+    }
+}
