@@ -5,11 +5,11 @@ fun printInfo(x:Int, y:Float, z:String)
 
 fun main()
 {
-    println("Рост ? ")
+    println("Рост: ")
     val h: Int = readLine()?.toIntOrNull() ?: 0
-    println("Вес ? ")
+    println("Вес: ")
     val w: Float = readLine()?.toFloatOrNull() ?: 0.0f
-    println("Имя ? ")
+    println("Имя: ")
     val name: String = readLine() ?: ""
     val c = printInfo(h,w,name)
     println(c)
