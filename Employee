@@ -1,32 +1,44 @@
 class Employee(val name: String)
 {
-    val tasks = 0
-    val tasklimit = 50
+    var tasksCompeted = 0
+    val taskslimit = 50
     
-    fun addTask(task: Int)
+    fun addTasks(count: Int)
     {
-        tasks.add(task)
+        tasksCompeted += count
     }
     
     fun isOverLimit(): Boolean
     {
-        return tasks > tasklimit
+        return tasksCompeted > taskslimit
     }
     
     fun printInfo()
     {
-        println("Имя работника: $name")
-        println("Число выполненных задач: $tasks")
+        println("Имя: $name")
+        println("Число выполненных задач: $tasksCompeted")
+        
+        if(isOverLimit())
+        {
+            println("Работник выполнил все задачи")
+        }
+        else
+        {
+            println("Работник не выполнил все задачи")
+        }
+        println()
     }
 }
 
-fun main() {
-   val employees = mutableListOf<Employee>()
-   
-   print("Введите количество работников: ")
-   val employeeCount = readLine()?.toIntOrNull() ?: return
-   
-   for (i in 1..employeeCount) {
+fun main()
+{
+    val employees = mutableListOf<Employee>()
+    
+    print("Введите количество работников: ")
+    val employeeCount = readLine()?.toIntOrNull() ?: return
+    
+    for (i in 1..employeeCount) 
+    {
         print("Введите имя работника #$i: ")
         val name = readLine() ?: ""
         val employee = Employee(name)
@@ -37,8 +49,9 @@ fun main() {
             it.toIntOrNull()
         } ?: listOf()
         
-        for (task in tasks) {
-            employee.addTask(task)
+        for (task in tasks) 
+        {
+            employee.addTasks(task)
         }
         employees.add(employee)
         println()
