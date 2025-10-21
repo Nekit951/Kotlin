@@ -1,0 +1,16 @@
+fun printInfo(x:Int, y:Float, z:String)
+{
+    println("Рост: $x, Вес: $y, Имя: $z")
+}
+
+fun main()
+{
+    println("Рост ? ")
+    val h: Int = readLine()?.toIntOrNull() ?: 0
+    println("Вес ? ")
+    val w: Float = readLine()?.toFloatOrNull() ?: 0.0f
+    println("Имя ? ")
+    val name: String = readLine() ?: ""
+    val c = printInfo(h,w,name)
+    println(c)
+}
