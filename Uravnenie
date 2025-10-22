@@ -8,11 +8,15 @@ class Uravnenie(var a: Double, var b: Double, var c: Double)
         println("b: $b")
         println("c: $c")
     }
+
+	fun discriminant(): Double
+	{
+		return b * b - 4.0 * a * c
+	}
     
     fun roots()
     {
-        val d = b * b - 4.0 * a * c
-        println("d: $d")
+        val d = discriminant()
         
         if(d > 0.0)
         {
@@ -40,5 +44,6 @@ fun main()
 {
     val res = Uravnenie(4.0,15.0,3.0)
     res.vivod()
+	res.discriminant()
     res.roots()
 }
