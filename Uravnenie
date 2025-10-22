@@ -1,0 +1,44 @@
+import kotlin.math.sqrt
+
+class Uravnenie(var a: Double, var b: Double, var c: Double)
+{
+    fun vivod()
+    {
+        println("a: $a")
+        println("b: $b")
+        println("c: $c")
+    }
+    
+    fun roots()
+    {
+        val d = b * b - 4.0 * a * c
+        println("d: $d")
+        
+        if(d > 0.0)
+        {
+            val x1 = (-b - sqrt(d)) / (2 * a)
+            val x2 = (-b - sqrt(d)) / (2 * a)
+            println("x1: $x1")
+            println("x2: $x2")
+        }
+        else if (d == 0.0)
+		{
+			val x1 = b / (2 * a)
+			println("x1: $x1")
+			val x2 = -b / (2 * a)
+			println("x2: $x2")
+		}
+
+		else
+		{
+			println("None")
+		}
+    }
+}
+
+fun main()
+{
+    val res = Uravnenie(4.0,15.0,3.0)
+    res.vivod()
+    res.roots()
+}
