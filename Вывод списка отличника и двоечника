@@ -1,0 +1,79 @@
+class Student(val name: String) 
+{
+    val grades = mutableListOf<Int>()
+
+    fun addGrade(grade: Int) 
+    {
+        grades.add(grade)
+    }
+
+    fun getAverageGrade(): Double 
+    {
+        return if (grades.isNotEmpty()) 
+        {
+            grades.sum().toDouble() / grades.size
+        } 
+        else 
+        {
+            0.0
+        }
+    }
+    
+    fun printInfo()
+    {
+        val average = getAverageGrade()
+        println("Студент: $name")
+        println("Оценки: $grades")
+        println("Средний балл: %.2f".format(average))
+        if(average >= 4)
+        {
+            println("Студент сдаёт экзамен.")
+        }
+        else(average >= 2) 
+        {
+            println("Студент не сдаёт экзамен.")
+        }
+        println()
+    }
+
+}
+
+fun main()
+{
+    val students = mutableListOf<Student>()
+    
+    print("Введите количество студентов: ")
+    val studentCount = readLine()?.toIntOrNull() ?: return 
+    
+    for (i in 1..studentCount)
+    {
+        print("Введите имя студента #$i: ")
+        val name = readLine() ?: ""
+        val student = Student(name)
+        
+        println("Введите оценки для $name (Через пробел): ")
+        val gradesInput = readLine()
+        val grades = gradesInput?.split(" ")?.mapNotNull { it.toIntOrNull() } ?: listOf()
+        
+        for(grade in grades)
+        {
+            student.addGrade(grade)
+        }
+        students.add(student)
+        println()
+    }
+    
+    for(student in students)
+    {
+        student.printInfo()
+    }
+    
+    val honorStudents = students.filter { it.grades.all { grade -> grade == 5 } }
+    val failingStudents = students.filter { it.grades.any { grade -> grade == 2 } }
+    
+    println("Список отличников:")
+    honorStudents.forEach { println(it.name) }
+
+    println("\nСписок двоечников:")
+    failingStudents.forEach { println(it.name) }
+}
