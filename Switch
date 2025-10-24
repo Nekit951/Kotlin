@@ -1,0 +1,44 @@
+class Switch(var isOn: Boolean = false, val label: String)
+{
+    fun toggle()
+    {
+        isOn = !isOn
+        val state = if (isOn) "ВКЛЮЧЕН" else "ВЫКЛЮЧЕН"
+        println("Переключатель $label : $state")
+    }
+    
+    fun setOn()
+    {
+        if (!isOn) toggle()
+    }
+    
+    fun setOff()
+    {
+        if (isOn) toggle()
+    }
+    
+    fun getStatusText()
+    {
+        if(!isOn)
+        {
+            println("Переключатель $label: вкл")
+        }
+        else
+        {
+            println("Переключатель $label: выкл")
+        }
+    }
+}
+
+fun main() {
+    println("=== ТЕСТ ПЕРЕКЛЮЧАТЕЛЯ ===")
+    
+    val lightSwitch = Switch(label = "fff")
+    
+    lightSwitch.toggle()
+    lightSwitch.toggle()
+    lightSwitch.setOn()
+    lightSwitch.setOff()
+    
+    lightSwitch.getStatusText()
+}
