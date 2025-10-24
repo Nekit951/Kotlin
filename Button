@@ -1,0 +1,34 @@
+class Button(val label: String)
+{
+    private var onClick: (() -> Unit)? = null
+    
+    fun setOnClickListener(listener: () -> Unit)
+    {
+        onClick = listener
+    }
+    
+    fun click()
+    {
+        println("Кнопка '$label' нажата")
+        onClick?.invoke()
+    }
+}
+fun main() {
+    println("=== ТЕСТ КНОПКИ ===")
+    
+    val myButton = Button("Войти")
+    
+    myButton.setOnClickListener{
+        println("Выполняется вход в систему")
+    }
+    
+    myButton.click()
+    
+    val exit = Button("Выход")
+    
+    exit.setOnClickListener{
+        println("Выполняется вход в систему")
+    }
+    
+    exit.click()
+}
