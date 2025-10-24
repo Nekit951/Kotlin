@@ -1,0 +1,29 @@
+class EditText(var text: String = "x"){
+    fun setText(newText: String){
+        text = newText
+        println("Текст изменен на : '$text' ")
+    }
+    
+    fun getText(): String{
+        return text
+    }
+    
+    fun clear(){
+        text = ""
+        println("Текст очищен")
+    }
+}
+
+fun main() {
+    println("=== ТЕКСТ ТЕКСТОВОГО ПОЛЯ ===")
+    
+    val emailField = EditText()
+    
+    emailField.setText("user@mail.com")
+    emailField.setText("new_email@mail.com")
+    
+    println("Текущий текст: ${emailField.getText()}")
+    
+    emailField.clear()
+    println("После очистки: '${emailField.getText()}'")
+}
