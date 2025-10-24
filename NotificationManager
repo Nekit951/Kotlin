@@ -1,0 +1,41 @@
+class NotificationManager{
+    private val notifications = mutableListOf<String>()
+    
+    fun showNotification(message: String){
+        notifications.add(message)
+        println("Новое уведомление: $message")
+        println("Всего уведомлений: ${notifications.size}")
+    }
+    
+    fun clearAll(){
+        notifications.clear()
+        println("Все уведомления очищены")
+    }
+    
+    fun showAll(){
+        println("=== ВСЕ УВЕДОМЛЕНИЯ ===")
+        if(notifications.isEmpty()){
+            println("Нет уведомлений")
+        } else {
+            notifications.forEachIndexed { index, message ->
+                println("${index + 1}. $message")
+            }
+        }
+    }
+    
+    
+}
+
+fun main() {
+    println("=== СИСТЕМА УВЕДОМЛЕНИЙ ===")
+    
+    val notificationManager = NotificationManager()
+    
+    notificationManager.showNotification("Новое сообщение")
+    notificationManager.showNotification("Обновление доступно")
+    notificationManager.showNotification("Низкий заряд батареи")
+    
+    notificationManager.showAll()
+    notificationManager.clearAll()
+    notificationManager.showAll()
+}
