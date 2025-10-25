@@ -3,19 +3,24 @@ import kotlin.random.Random
 fun main() 
 {
     var attempts = 0
-    val x = 0
     val rand = Random.nextInt(1,100) 
     while(true)
     {
         attempts++
-        println("Число: $rand")
+        println("Число: ")
         var x = readLine()?.toIntOrNull() ?: 0
         when
         {
+            x == 0 -> { println("Неправильная строка")
+                break }
             x < rand -> println("Больше")
             x > rand -> println("Меньше")
-            else -> println("Правильно") 
+            x == rand -> { println("Правильно")
+                break
+            }
         }
-        println("Количество попыток: $attempts")
+        
+        println("Количество попыток: $attempts") 
+       
     } 
 }
