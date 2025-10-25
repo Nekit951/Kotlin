@@ -2,14 +2,20 @@ import kotlin.random.Random
 
 fun main() 
 {
-    println("Введите макс. значение: ")
-    val max = readLine()?.toIntOrNull ?: return
-    
-    for(i in 1..max)
+    var attempts = 0
+    val x = 0
+    val rand = Random.nextInt(1,100) 
+    while(true)
     {
-        println("Введите число: #$i")
-        val res = readLine().toIntOrNull ?: 0
-        val rand = Random.nextInt(max)
-        println(rand)
-    }
+        attempts++
+        println("Число: $rand")
+        var x = readLine()?.toIntOrNull() ?: 0
+        when
+        {
+            x < rand -> println("Больше")
+            x > rand -> println("Меньше")
+            else -> println("Правильно") 
+        }
+        println("Количество попыток: $attempts")
+    } 
 }
