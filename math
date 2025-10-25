@@ -1,34 +1,25 @@
-fun math(operation: Int = 4, a: Double, b: Double): Double
+fun main() 
 {
-    return when(operation)
-    {
-        1 -> a + b
-        2 -> a - b
-        3 -> a * b
-        4 -> 
-        {
+    println("a = ")
+    var a = readln().toDouble()
+    println("b = ")
+    var b = readln().toDouble()
+    println("Операция: ")
+    val operation = readLine() ?: ""
+    when(operation){
+        "+" -> println(a + b)
+        "-" -> println(a - b)
+        "*" -> println(a * b)
+        "/" -> {
             if(b == 0.0)
             {
-                throw ArithmeticException("Деление на ноль невозможно")
+                println("Деление на ноль невозможно")
             }
             else
             {
-                a / b
+                println(a / b)
             }
         }
-        else -> throw IllegalArgumentException("Invalid operation: $operation") // исключение, которое возникает, когда методу передается некорректный или неуместный аргумент
+        else -> println("Действие невозможно")
     }
-}
-fun main() 
-{
-    val res1 = math(1, 2.0, 5.4)
-    println(res1)
-    val res2 = math(2, 4.5, 2.5)
-    println(res2)
-    val res3 = math(3, 5.0, 5.0)
-    println(res3)
-    val res4 = math(4, 10.0, 5.0)
-    println(res4)
-    val res5 = math(4, 10.0, 0.0)
-    println(res5)
 }
