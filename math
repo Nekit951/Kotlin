@@ -1,0 +1,34 @@
+fun math(operation: Int = 4, a: Double, b: Double): Double
+{
+    return when(operation)
+    {
+        1 -> a + b
+        2 -> a - b
+        3 -> a * b
+        4 -> 
+        {
+            if(b == 0.0)
+            {
+                throw ArithmeticException("Деление на ноль невозможно")
+            }
+            else
+            {
+                a / b
+            }
+        }
+        else -> throw IllegalArgumentException("Invalid operation: $operation") // исключение, которое возникает, когда методу передается некорректный или неуместный аргумент
+    }
+}
+fun main() 
+{
+    val res1 = math(1, 2.0, 5.4)
+    println(res1)
+    val res2 = math(2, 4.5, 2.5)
+    println(res2)
+    val res3 = math(3, 5.0, 5.0)
+    println(res3)
+    val res4 = math(4, 10.0, 5.0)
+    println(res4)
+    val res5 = math(4, 10.0, 0.0)
+    println(res5)
+}
