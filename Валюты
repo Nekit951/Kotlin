@@ -1,0 +1,12 @@
+fun main() 
+{
+    val dollar = 0f
+    val euro = 0f
+    
+    println("Доступные валюты: USD, EUR")
+    println("Введите сумму в рубляж: ")
+    val rub = readln().toFloat()
+    
+    println("RUB -> USD ${rub*0.01235}")
+    println("RUB -> EUR ${rub*0.010629}")
+}
