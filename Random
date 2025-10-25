@@ -1,0 +1,15 @@
+import kotlin.random.Random
+
+fun main() 
+{
+    println("Введите макс. значение: ")
+    val max = readLine()?.toIntOrNull ?: return
+    
+    for(i in 1..max)
+    {
+        println("Введите число: #$i")
+        val res = readLine().toIntOrNull ?: 0
+        val rand = Random.nextInt(max)
+        println(rand)
+    }
+}
