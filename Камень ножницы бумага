@@ -8,7 +8,7 @@ fun main()
         val choice = listOf("Камень", "Ножницы", "Бумага")
         val rand = choice.random()
         attempts++
-        println("Введи: $rand")
+        println("Введи: ")
         var x = readLine() ?: ""
         if(x == "Бумага" && rand == "Камень" || x == "Ножницы" && rand == "Бумага" || x == "Камень" && rand == "Ножницы")
         {
