@@ -1,0 +1,27 @@
+import kotlin.random.Random
+
+fun main() 
+{
+    var attempts = 0
+    while(true)
+    {
+        val choice = listOf("Камень", "Ножницы", "Бумага")
+        val rand = choice.random()
+        attempts++
+        println("Введи: $rand")
+        var x = readLine() ?: ""
+        if(x == "Бумага" && rand == "Камень" || x == "Ножницы" && rand == "Бумага" || x == "Камень" && rand == "Ножницы")
+        {
+            println("Победа")
+            break
+        }
+        else if(x == rand)
+        {
+            println("Ничья")
+        }
+        else 
+        {
+            println("Поражение")
+        }
+    } 
+}
