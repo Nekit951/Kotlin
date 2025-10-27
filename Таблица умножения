@@ -1,0 +1,11 @@
+fun main() 
+{
+    println("Введи число: ")
+    var num = readln().toInt()
+    
+    do{
+        println(num*num)
+        num++;
+    }
+    while(num > 0)
+}
