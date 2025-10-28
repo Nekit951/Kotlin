@@ -1,0 +1,21 @@
+fun main() {
+    println("1.Столица России: ")
+    println("1) Москва")
+    println("2) Санкт-Петербург")
+    println("3) Казань")
+    val t1 = listOf("Москва", "Санкт-Петербург", "Казань")
+    while(true)
+    {
+        println("Ваш ответ: ")
+        val player = readLine() ?: ""
+        if(player == "Москва")
+        {
+            println("Правильно")
+            break
+        }
+        else
+        {
+            println("Неправильно")
+        }
+    }
+}
