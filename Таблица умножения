@@ -1,11 +1,13 @@
-fun main() 
-{
-    println("Введи число: ")
-    var num = readln().toInt()
-    
-    do{
-        println(num*num)
-        num++;
+fun main() {
+    println("Введите число: ")
+    var i = readln().toInt()
+    do
+    {
+        for(j in 1..10){
+            val res = i * j
+            print("$i*$j=$res\n")
+        }
     }
-    while(num > 0)
+    while(i <= 0)
+    
 }
