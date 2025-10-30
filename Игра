@@ -3,19 +3,17 @@ fun main() {
     println("1) Москва")
     println("2) Санкт-Петербург")
     println("3) Казань")
-    val t1 = listOf("Москва", "Санкт-Петербург", "Казань")
     while(true)
     {
+        val points0 = 0
+        val points1 = 1
         println("Ваш ответ: ")
-        val player = readLine() ?: ""
-        if(player == "Москва")
+        val player = readln().toInt()
+        when(player)
         {
-            println("Правильно")
-            break
-        }
-        else
-        {
-            println("Неправильно")
-        }
+            1 -> println("Правильно, $points1 балл") 
+        } 
+        else -> println("Неправльно, $points0 балл")  
+        
     }
 }
