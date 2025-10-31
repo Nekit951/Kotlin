@@ -3,17 +3,76 @@ fun main() {
     println("1) Москва")
     println("2) Санкт-Петербург")
     println("3) Казань")
-    while(true)
+    val points0 = 0
+    val points1 = 1
+    println("Ваш ответ: ")
+    val player1 = readln().toInt()
+    if(player1 == 1)
     {
-        val points0 = 0
-        val points1 = 1
-        println("Ваш ответ: ")
-        val player = readln().toInt()
-        when(player)
-        {
-            1 -> println("Правильно, $points1 балл") 
-        } 
-        else -> println("Неправльно, $points0 балл")  
-        
+        println("Правильно, $points1 балл")
+    } 
+    else
+    {
+        println("Неправильно, $points0 балл") 
+    }
+    
+    println("2.Кто написал Войну и мир: ")
+    println("1) А.С. Пушкин")
+    println("2) Л.Н. Толстой")
+    println("3) А.И. Куприн")
+    println("Ваш ответ: ")
+    val player2 = readln().toInt()
+    if(player2 == 2)
+    {
+        println("Правильно, $points1 балл")
+    } 
+    else
+    {
+        println("Неправильно, $points0 балл") 
+    }
+    
+    println("3.Сколько будет 10*10: ")
+    println("1) 10")
+    println("2) 100")
+    println("3) 110")
+    println("Ваш ответ: ")
+    val player3 = readln().toInt()
+    if(player3 == 2)
+    {
+        println("Правильно, $points1 балл")
+    } 
+    else
+    {
+        println("Неправильно, $points0 балл") 
+    }
+    
+    println("4.Язык прораммирования: ")
+    println("1) Google")
+    println("2) Android")
+    println("3) C++")
+    println("Ваш ответ: ")
+    val player4 = readln().toInt()
+    if(player4 == 3)
+    {
+        println("Правильно, $points1 балл")
+    } 
+    else
+    {
+        println("Неправильно, $points0 балл") 
+    }
+    
+    println("5.Где расположен остров Бали: ")
+    println("1) Индонезия")
+    println("2) Бруней")
+    println("3) Непал")
+    println("Ваш ответ: ")
+    val player5 = readln().toInt()
+    if(player5 == 1)
+    {
+        println("Правильно, $points1 балл")
+    } 
+    else
+    {
+        println("Неправильно, $points0 балл") 
     }
 }
