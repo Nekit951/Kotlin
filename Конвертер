@@ -9,10 +9,62 @@ fun main() {
     val choice = readln().toInt()
     when(choice)
     {
-        1 -> println("=== КОНВЕРТЕР ТЕМПЕРАТУР ===")
-        2 -> println("=== КОНВЕРТЕР ДЛИНЫ ===")
-        3 -> println("=== КОНВЕРТЕР ВЕСА ===")
-        4 -> println("=== КОНВЕРТЕР ВРЕМЕНИ ===")
+        1 -> { println("=== КОНВЕРТЕР ТЕМПЕРАТУР ===")
+        println("Введи температуру: ")
+        val temp = readln().toFloat() 
+        println("Из какой единицы (C/F/K): ")
+        val t = readLine() ?: "" 
+        if(t == "C"){
+          println("Результаты: $temp C = ${(temp*9/5)+32} F")
+          println("Результаты: $temp C = ${temp+273.15} K")
+        }
+        else if(t == "F"){
+            println("Результаты: $temp F = ${(temp-32)*5/9} C")
+        }
+        else{
+            println("Результаты: $temp K = ${(temp-273.15)} C")
+        }
+        }
+        2 -> { println("=== КОНВЕРТЕР ДЛИНЫ ===")
+            println("Введи длину (m): ")
+            val length = readln().toFloat() 
+            println("Результаты: $length m = ${length*100} cm")
+            println("Результаты: $length m = ${length*0.001} km")
+            println("Результаты: $length m = ${length*3.28084} ft")
+        }
+        3 -> { println("=== КОНВЕРТЕР ВЕСА ===")
+        println("Введи вес: ")
+        val weight = readln().toFloat() 
+        println("Из какой единицы (kg/ib): ")
+        val w = readLine() ?: "" 
+        if(w == "kg"){
+          println("Результаты: $weight kg = ${weight*1000} g")
+          println("Результаты: $weight kg = ${weight*2.0462} ib")
+        }
+        else if(w == "ib"){
+            println("Результаты: $weight ib = ${weight*0.453592} kg")
+        }
+        else{
+            println("Неизвестная величина")
+        }
+        }
+        4 -> { println("=== КОНВЕРТЕР ВРЕМЕНИ ===")
+        println("Введи время: ")
+        val time = readln().toFloat() 
+        println("Из какой единицы (h/min): ")
+        val tm = readLine() ?: "" 
+        if(tm == "h"){
+          println("Результаты: $time h = ${time*60} min")
+          println("Результаты: $time h = ${time*3600} s")
+        }
+        else if(tm == "min"){
+            println("Результаты: $time min = ${time*60} s")
+        }
+        else
+        {
+            println("Неизвестная величина")
+        }
+        }
         else -> println("Ты что ввёл?")
     }
 }
