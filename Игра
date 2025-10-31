@@ -1,19 +1,19 @@
 fun main() {
+    var totalPoints = 0
     println("1.Столица России: ")
     println("1) Москва")
     println("2) Санкт-Петербург")
     println("3) Казань")
-    val points0 = 0
-    val points1 = 1
     println("Ваш ответ: ")
     val player1 = readln().toInt()
     if(player1 == 1)
     {
-        println("Правильно, $points1 балл")
+        totalPoints += 1
+        println("Правильно, 1 балл")
     } 
     else
     {
-        println("Неправильно, $points0 балл") 
+        println("Неправильно, 0 балл") 
     }
     
     println("2.Кто написал Войну и мир: ")
@@ -24,11 +24,12 @@ fun main() {
     val player2 = readln().toInt()
     if(player2 == 2)
     {
-        println("Правильно, $points1 балл")
+        totalPoints += 1
+        println("Правильно, 1 балл")
     } 
     else
     {
-        println("Неправильно, $points0 балл") 
+        println("Неправильно, 0 балл") 
     }
     
     println("3.Сколько будет 10*10: ")
@@ -39,11 +40,12 @@ fun main() {
     val player3 = readln().toInt()
     if(player3 == 2)
     {
-        println("Правильно, $points1 балл")
+        totalPoints += 1
+        println("Правильно, 1 балл")
     } 
     else
     {
-        println("Неправильно, $points0 балл") 
+        println("Неправильно, 0 балл") 
     }
     
     println("4.Язык прораммирования: ")
@@ -54,11 +56,12 @@ fun main() {
     val player4 = readln().toInt()
     if(player4 == 3)
     {
-        println("Правильно, $points1 балл")
+        totalPoints += 1
+        println("Правильно, 1 балл")
     } 
     else
     {
-        println("Неправильно, $points0 балл") 
+        println("Неправильно, 0 балл") 
     }
     
     println("5.Где расположен остров Бали: ")
@@ -69,10 +72,13 @@ fun main() {
     val player5 = readln().toInt()
     if(player5 == 1)
     {
-        println("Правильно, $points1 балл")
+        totalPoints += 1
+        println("Правильно, 1 балл")
     } 
     else
     {
-        println("Неправильно, $points0 балл") 
+        println("Неправильно, 0 балл") 
     }
+    
+    println("Ваш итоговый счёт: $totalPoints баллов")
 }
