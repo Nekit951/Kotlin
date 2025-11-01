@@ -1,0 +1,55 @@
+import kotlin.random.Random
+
+fun main() {
+    val words = listOf("Яблоко", "Кот", "Свет", "Доска")
+    val rand = words.random() // Загаданное слово
+    var attempts = 6
+    // MutableList для хранения текущего состояния угаданного слова (например, ['_', '_', ...])
+    val guessedWord = MutableList(rand.length) { '_' } 
+    val guessedLetters = mutableSetOf<Char>() // Множество для хранения уже угаданных букв
+
+    // Основной игровой цикл
+    while (attempts > 0 && guessedWord.contains('_')) {
+        println("Всего букв: ${guessedWord.joinToString(" ")}") // Отображение текущего прогресса
+        println("Осталось попыток: $attempts")
+        println("Введите букву: ")
+        
+        val input = readLine()?.lowercase() ?: "" // Считываем ввод и приводим к нижнему регистру
+        
+        // Проверка на корректность ввода
+        if (input.length != 1 || !input[0].isLetter()) {
+            println("Пожалуйста, введите одну букву.")
+            continue
+        }
+        
+        val letter = input[0]
+
+        if (letter in guessedLetters) {
+            println("Вы уже вводили эту букву: $letter")
+            continue
+        }
+        
+        guessedLetters.add(letter)
+
+        if (rand.lowercase().contains(letter)) {
+            println("Буква угадана!")
+            // Обновляем guessedWord: находим все вхождения буквы и заменяем '_'
+            for (i in rand.indices) {
+                if (rand[i].lowercase()[0] == letter) {
+                    guessedWord[i] = rand[i] // Используем оригинальный регистр из rand
+                }
+            }
+        } else {
+            println("Нет такой буквы")
+            attempts--
+        }
+        println("-" .repeat(20)) // Разделитель для консоли
+    }
+
+    // Результат игры
+    if (!guessedWord.contains('_')) {
+        println("Поздравляем! Вы угадали слово: $rand")
+    } else {
+        println("К сожалению, вы проиграли. Загаданное слово было: $rand")
+    }
+}
