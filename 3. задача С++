@@ -1,0 +1,11 @@
+fun main(){
+    val x = listOf("кот", "окно", "дверь", "котлин")
+    val minX = x.minByOrNull() {it. length}
+    val maxX = x.maxByOrNull() {it. length}
+    
+    val minIn = x.indexOf(minX)
+    val maxIn = x.indexOf(maxX)
+    
+    println("Короткое слово: $minX, Номер: $minIn")
+    println("Длинное слово: $maxX, Номер: $maxIn")
+}
