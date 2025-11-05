@@ -1,0 +1,6 @@
+fun main(){
+    val group = readln()
+    val name = readln()
+    println("Лабораторная работа №1")
+    println("Выполнил: ст.гр. $group\n$name")
+}
