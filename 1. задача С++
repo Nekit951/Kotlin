@@ -1,0 +1,10 @@
+fun main(){
+    println("    /\\ ")
+    println("   /  \\")
+    println("  /    \\")
+    println(" /______\\")
+    println("/|      |\\")
+    println(" |      |")
+    println(" |      |")
+    println(" |______|")
+}
