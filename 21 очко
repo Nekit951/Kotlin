@@ -1,0 +1,99 @@
+import java.util.*
+
+// Определение масти и ранга карты
+enum class Suit { HEARTS, DIAMONDS, CLUBS, SPADES }
+enum class Rank(val value: Int) {
+    TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9), TEN(10),
+    JACK(10), QUEEN(10), KING(10), ACE(11) // Туз по умолчанию 11, логика для 1 будет позже
+}
+
+data class Card(val suit: Suit, val rank: Rank) {
+    override fun toString(): String {
+        return "${rank.name} ${suit.name}"
+    }
+}
+
+// Класс для управления колодой
+class Deck {
+    private val cards = mutableListOf<Card>()
+
+    init {
+        for (suit in Suit.values()) {
+            for (rank in Rank.values()) {
+                cards.add(Card(suit, rank))
+            }
+        }
+        cards.shuffle() // Перемешиваем колоду при создании
+    }
+
+    fun draw(): Card = cards.removeAt(0)
+    fun isEmpty(): Boolean = cards.isEmpty()
+}
+
+// Функция для подсчета очков в руке, учитывая Тузы
+fun calculateHandValue(hand: List<Card>): Int {
+    var value = hand.sumOf { it.rank.value }
+    var aces = hand.count { it.rank == Rank.ACE }
+
+    // Если перебор (больше 21) и есть Тузы, считать Туз за 1 очко
+    while (value > 21 && aces > 0) {
+        value -= 10
+        aces--
+    }
+    return value
+}
+
+fun main() {
+    println("Добро пожаловать в игру 21 очко!")
+
+    val deck = Deck()
+    val playerHand = mutableListOf<Card>()
+    val dealerHand = mutableListOf<Card>()
+
+    // Начальная раздача
+    playerHand.add(deck.draw())
+    dealerHand.add(deck.draw())
+    playerHand.add(deck.draw())
+    dealerHand.add(deck.draw())
+
+    // Ход игрока
+    while (true) {
+        println("\nВаши карты: $playerHand (Очки: ${calculateHandValue(playerHand)})")
+        println("Карта дилера: ${dealerHand[0]}, [скрытая карта]")
+
+        if (calculateHandValue(playerHand) > 21) {
+            println("У вас перебор! Вы проиграли.")
+            return
+        }
+
+        println("Хотите взять еще карту? (да/нет)")
+        val input = readLine()?.lowercase(Locale.getDefault())
+
+        if (input == "да" || input == "д") {
+            playerHand.add(deck.draw())
+        } else {
+            break
+        }
+    }
+
+    // Ход дилера
+    while (calculateHandValue(dealerHand) < 17) {
+        dealerHand.add(deck.draw())
+    }
+
+    // Определение победителя
+    val playerValue = calculateHandValue(playerHand)
+    val dealerValue = calculateHandValue(dealerHand)
+
+    println("\n--- Результаты игры ---")
+    println("Ваши карты: $playerHand (Очки: $playerValue)")
+    println("Карты дилера: $dealerHand (Очки: $dealerValue)")
+
+    when {
+        playerValue > 21 -> println("Вы проиграли (перебор).")
+        dealerValue > 21 -> println("Дилер проиграл (перебор). Вы выиграли!")
+        playerValue > dealerValue -> println("Вы выиграли!")
+        dealerValue > playerValue -> println("Вы проиграли.")
+        else -> println("Ничья.")
+    }
+}
