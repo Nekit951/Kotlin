@@ -1,6 +1,44 @@
 fun main(){
     val group = readln()
     val name = readln()
-    println("Лабораторная работа №1")
-    println("Выполнил: ст.гр. $group\n$name")
+
+    // Список строк для вывода
+    val lines = listOf(
+        "Лабораторная работа №1",
+        "Выполнил: ст.гр. $group",
+        name
+    )
+
+    // Находим длину самой длинной строки
+    var maxLength = 0
+    for (line in lines) {
+        if (line.length > maxLength) {
+            maxLength = line.length
+        }
+    }
+
+    // Длина рамки должна быть на 2 символа больше (с учетом пробелов по краям)
+    val frameLength = maxLength + 2
+
+    // Функция для печати горизонтальной границы
+    fun printBorder(length: Int) {
+        for (i in 0 until length) {
+            print("*")
+        }
+        println()
+    }
+
+    // Печатаем верхнюю границу
+    printBorder(frameLength)
+
+    // Печатаем содержимое с выравниванием и вертикальными границами
+    for (line in lines) {
+        // Вычисляем количество пробелов для выравнивания
+        val spacesCount = maxLength - line.length
+        val spaces = " ".repeat(spacesCount)
+        println("* $line$spaces *")
+    }
+
+    // Печатаем нижнюю границу
+    printBorder(frameLength)
 }
