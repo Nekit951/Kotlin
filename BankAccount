@@ -31,8 +31,13 @@ class BankAccount(private var balance: Int = 0){
 }
 
 fun main() {
-    val MMM = BankAccount(20)
-    MMM.deposit(10)
-    MMM.withdraw(20)
+    println("Введите исходный баланс: ")
+    val MMM = BankAccount(readln().toInt())
+    println("Введите депозит: ")
+    val dep = readln().toInt()
+    MMM.deposit(dep)
+    println("Введите снятие: ")
+    val with = readln().toInt()
+    MMM.withdraw(with)
     MMM.getBalance()
 }
