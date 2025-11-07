@@ -15,7 +15,7 @@ class BankAccount(var balance: Int){
             this.balance -= amount
             println("Снято $amount, ваш баланс: $balance")
         }
-        else if(amount <= 0 || balance <= 0){
+        else if(amount <= 0){
             println("Снятие невозможно")
         }
         else{
