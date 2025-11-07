@@ -1,42 +1,38 @@
-class BankAccount(private var balance: Int = 0) {
-
-    fun deposit(amount: Int) {
-        if (amount > 0) {
+class BankAccount(private var balance: Int = 0){
+    
+    fun deposit(amount: Int){
+        if(amount > 0){
             balance += amount
-            println("Счет пополнен на $amount. Текущий баланс: $balance")
-        } else {
-            println("Сумма пополнения должна быть положительной.")
+            println("Пополнение $amount, ваш баланс: $balance")
+        }
+        else{
+            println("Пополнение невозможно")
         }
     }
-
-    fun withdraw(amount: Int) {
-        if (amount > 0) {
-            if (balance >= amount) {
-                balance -= amount
-                println("Снято $amount. Текущий баланс: $balance")
-            } else {
-                println("Недостаточно средств на счете. Доступно: $balance")
+    
+    fun withdraw(amount: Int){
+        if(amount > 0){
+            if(balance >= amount){
+            balance -= amount
+            println("Снято $amount, ваш баланс: $balance")
             }
-        } else {
-            println("Сумма снятия должна быть положительной.")
+            else{
+                println("Нехватка средств")    
+            }
+        }
+        else{
+            println("Снятие невозможно")
         }
     }
-
-    fun getBalance(): Int {
-        return balance
+    
+    fun getBalance(){
+        println("Ваш текущий баланс: $balance")
     }
 }
 
 fun main() {
-    val account = BankAccount()
-
-    println("Введите сумму для пополнения:")
-    val depositAmount = readLine()?.toIntOrNull() ?: 0
-    account.deposit(depositAmount)
-
-    println("\nВведите сумму для снятия:")
-    val withdrawAmount = readLine()?.toIntOrNull() ?: 0
-    account.withdraw(withdrawAmount)
-
-    println("\nТекущий баланс: ${account.getBalance()}")
+    val MMM = BankAccount(20)
+    MMM.deposit(10)
+    MMM.withdraw(20)
+    MMM.getBalance()
 }
