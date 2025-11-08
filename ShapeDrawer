@@ -1,0 +1,53 @@
+class ShapeDrawer{
+    
+    fun drawSquare(size: Int){
+        for(i in 1..size){
+            repeat(size){
+                print("■ ")
+            }
+            println()
+        }
+    }
+    
+    fun drawTriangle(size: Int){
+        for(i in 1..size){
+            repeat(size-i){
+                print(" ")
+            }
+            repeat(2*i-1){
+                print("▲")
+            }
+            println()
+        }    
+    }
+    
+    fun drawCircle(radius: Int){
+        for (i in -radius..radius) { // i-строка, j-столбец, Он перебирает значения для вертикальной оси (оси Y), от отрицательного радиуса до положительного радиуса. Это определяет высоту квадратной области печати.
+            for (j in -radius..radius) { // Он перебирает значения для вертикальной оси (оси Y), от отрицательного радиуса до положительного радиуса. Это определяет высоту квадратной области печати.
+                val distanceSquared = i * i + j * j // Вычисляется квадрат расстояния от текущей точки (j, i) до центра (0, 0) по теореме Пифагора
+                val radiusSquared = radius * radius // Вычисляется квадрат заданного радиуса.
+                if (distanceSquared <= radiusSquared + radius / 2) { // Это условие определяет, что печатать.
+                    print("● ")
+                } 
+                else {
+                    print("  ")
+                }
+            }
+            println()
+        }
+    } 
+}
+
+fun main() {
+    println("=== ГЕНЕРАТОР ФИГУР ===")
+    val draw = ShapeDrawer()
+    print("Квадрат размером ")
+    val draw1 = readln().toInt()
+    draw.drawSquare(draw1)
+    print("Треугольник размером ")
+    val draw2 = readln().toInt()
+    draw.drawTriangle(draw2)
+    print("Круг размером ")
+    val draw3 = readln().toInt()
+    draw.drawCircle(draw3)
+}
