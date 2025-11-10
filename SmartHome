@@ -1,0 +1,64 @@
+class SmartHome(val houseName: String, var temperature: Int, val isSecurityEnabled: Boolean){
+    
+    fun setTemperature(newTemp: Int){
+        temperature = newTemp
+        println("Температура установлена на $newTemp")
+    }
+    
+    fun increaseTemp(newTemp: Int){
+        temperature++
+        println("Температура увеличена до $newTemp")
+    }
+    
+    fun decreaseTemp(newTemp: Int){
+        temperature--
+        println("Температура уменьшена до $newTemp")
+    }
+    
+    fun enableSecurity(){
+        if(isSecurityEnabled == true){
+            println("Система безопасности активирована")
+        }
+        else{
+            println("Система безопасности отключена")
+        }
+    }
+    
+    val lights = 
+    fun isLights(lights: Boolean){
+        if(lights == true){
+            println("Свет включен во всём доме")
+        }
+        else{
+            println("Свет выключен во всём доме")
+        }
+    }
+    
+    fun isComfortble(newTemp: Int){
+        if(newTemp >= 18 && newTemp <= 25)
+        {
+            println("Дома комфортно")
+        }
+        else{
+            println("Дома некомфортно")
+        }
+    }
+    
+    fun printHouseStatus(lights: Boolean){
+        print("=== СТАТУС ДОМА: $houseName ===")
+        print("Температура $temperature")
+        print("Система безопасности $isSecurityEnabled")
+        print("Освещение $lights")
+    }
+}
+
+fun main(){
+    val aaa = SmartHome("ЯЯЯ", 20, true)
+    aaa.setTemperature(20)
+    aaa.increaseTemp(2)
+    aaa.decreaseTemp(3)
+    aaa.enableSecurity(true)
+    aaa.isLights(true)
+    aaa.isComfortble()
+    aaa.printHouseStatus()
+}
