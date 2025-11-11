@@ -1,18 +1,23 @@
-class SmartHome(val houseName: String, var temperature: Int, val isSecurityEnabled: Boolean){
+class SmartHome(
+    val houseName: String,
+    private var temperature: Int,
+    val isSecurityEnabled: Boolean
+    )
+{
     
-    fun setTemperature(newTemp: Int){
+    fun setTemperature(newTemp:  Int){
         temperature = newTemp
         println("Температура установлена на $newTemp")
     }
     
     fun increaseTemp(newTemp: Int){
         temperature++
-        println("Температура увеличена до $newTemp")
+        println("Температура увеличена до $temperature")
     }
     
     fun decreaseTemp(newTemp: Int){
         temperature--
-        println("Температура уменьшена до $newTemp")
+        println("Температура уменьшена до $temperature")
     }
     
     fun enableSecurity(){
@@ -24,7 +29,6 @@ class SmartHome(val houseName: String, var temperature: Int, val isSecurityEnabl
         }
     }
     
-    val lights = 
     fun isLights(lights: Boolean){
         if(lights == true){
             println("Свет включен во всём доме")
@@ -45,20 +49,21 @@ class SmartHome(val houseName: String, var temperature: Int, val isSecurityEnabl
     }
     
     fun printHouseStatus(lights: Boolean){
-        print("=== СТАТУС ДОМА: $houseName ===")
-        print("Температура $temperature")
-        print("Система безопасности $isSecurityEnabled")
-        print("Освещение $lights")
+        println("=== СТАТУС ДОМА: $houseName ===")
+        println("Температура $temperature")
+        println("Система безопасности $isSecurityEnabled")
+        println("Освещение $lights")
     }
+
 }
 
 fun main(){
     val aaa = SmartHome("ЯЯЯ", 20, true)
     aaa.setTemperature(20)
     aaa.increaseTemp(2)
-    aaa.decreaseTemp(3)
-    aaa.enableSecurity(true)
+    aaa.decreaseTemp(1)
+    aaa.enableSecurity()
     aaa.isLights(true)
-    aaa.isComfortble()
-    aaa.printHouseStatus()
+    aaa.isComfortble(23)
+    aaa.printHouseStatus(true)
 }
