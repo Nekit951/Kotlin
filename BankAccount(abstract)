@@ -1,0 +1,23 @@
+abstract class BankAccount(val accountNumber: String, val balance: Double, val owner: String){
+    
+    fun deposit(amount: Double){
+        if(amount > 0.0){
+            balance += amount
+            println("Пополнение $amount, ваш баланс: $balance")
+        }
+        else{
+            println("Пополнение невозможно")
+        }
+    }
+    
+    abstract fun withdraw(amount: Double): Boolean
+    abstract fun getAccountInfo(): String
+    
+    fun calculateMontleyFee(): Double{
+        
+    }
+}
+
+fun main(){
+    
+}
