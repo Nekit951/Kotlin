@@ -1,0 +1,25 @@
+data class Book(val title: String, val author: String, val year: Int){
+    
+}
+
+class Library(){
+    
+    private val books = mutableListOf<Book>()
+    
+    fun addBook(book: Book){
+        books.add(book)
+        println("Книга ${book.title} добавлена")
+    }
+    
+    fun removeBook(title: String){
+        books.remove(title)
+        println("Книга ${book.title} добавлена")
+    }
+    
+}
+fun main() {
+    val aaa = Book("bbb", "fegv", 21)
+    val ccc = Library()
+    ccc.addBook(aaa)
+    ccc.removeBook(aaa)
+}
